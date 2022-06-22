@@ -82,9 +82,6 @@ keys = [
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10-")),
 
-
-
-
     # Floating keybind
     Key([mod], "Tab", utils.toggle_focus_floating(), desc="Toogle Floating window mode"),
     Key([mod, 'shift'], "space", lazy.window.toggle_floating(), desc="Toogle Floating window mode"),
