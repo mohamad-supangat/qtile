@@ -11,12 +11,14 @@ from libqtile import hook, qtile
 
 clipboard_manager = "clipman pick -t rofi"
 screenshot = 'grim -g "$(slurp)" - | swappy -f -'
+screenrecord = '~/.scripts/record-screen'
 
 
 # x11 variable apps
 if qtile.core.name == "x11":
     clipboard_manager = "clipmenu -i -fn Iosevka"
     screenshot = 'flameshot gui'
+    screenrecord = 'peek'
 
 terminal = "alacritty -e tmuxa"
 mod = "mod4"
@@ -87,8 +89,8 @@ keys = [
     Key([mod], "r", lazy.spawn(runner), desc="runner"),
     Key([mod], "space", lazy.spawn(app_runner), desc="app_runner"),
     Key([mod, 'shift'], "b", lazy.spawn('qbpm choose'), desc="qbpm choose"),
-    Key([], 'Print', lazy.spawn(screenshot), desc="qbpm choose"),
-
+    Key([], 'Print', lazy.spawn(screenshot), desc="Screen shoot"),
+    Key([mod], 'Print', lazy.spawn(screenrecord), desc="screen record"),
 ]
 
 groups = [Group(i) for i in "12345"]
