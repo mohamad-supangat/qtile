@@ -67,6 +67,8 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod, 'shift'], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, 'shift'], "q", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle between layouts"),
+
     Key([mod, "shift"], "c", lazy.reload_config(), desc="Reload the config"),
     # Key([mod, "shift"], "c", lazy.restart(), desc="Reload the config"),
 
@@ -91,6 +93,7 @@ keys = [
     Key([mod, 'shift'], "b", lazy.spawn('qbpm choose'), desc="qbpm choose"),
     Key([], 'Print', lazy.spawn(screenshot), desc="Screen shoot"),
     Key([mod], 'Print', lazy.spawn(screenrecord), desc="screen record"),
+    Key([mod, 'shift'], "s", lazy.spawn('scrcpy'), desc="scrcpy"),
 ]
 
 groups = [Group(i) for i in "12345"]
@@ -198,14 +201,14 @@ cursor_warp = False
 floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
-        *layout.Floating.default_float_rules,
+        # *layout.Floating.default_float_rules,
         Match(wm_class="confirmreset"),  # gitk
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-        # Match(="scrcpy")
+        Match(wm_class="scrcpy")
     ]
 )
 
@@ -231,7 +234,7 @@ auto_minimize = True
 
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
-
+bring_front_click = False
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
 # mailing lists, GitHub issues, and other WM documentation that suggest setting
