@@ -71,13 +71,18 @@ keys = [
 
     Key([mod, "shift"], "c", lazy.reload_config(), desc="Reload the config"),
     # Key([mod, "shift"], "c", lazy.restart(), desc="Reload the config"),
-
     # Key([mod, "shift"], "e", lazy.function(utils.show_power_menu)),
-
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
 
+    ## backlight and sound
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%")),
+
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10-")),
 
     # Floating keybind
     Key([mod], "Tab", utils.toggle_focus_floating(), desc="Toogle Floating window mode"),

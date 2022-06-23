@@ -5,3 +5,6 @@
 
 # clipboard manager
 wl-paste -t text --watch clipman store --max-items=1000 &
+
+# notificatin
+dunst &
