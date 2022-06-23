@@ -99,6 +99,8 @@ keys = [
     Key([], 'Print', lazy.spawn(screenshot), desc="Screen shoot"),
     Key([mod], 'Print', lazy.spawn(screenrecord), desc="screen record"),
     Key([mod, 'shift'], "s", lazy.spawn('scrcpy'), desc="scrcpy"),
+    Key(['mod1'], "Tab", lazy.spawn('rofi -show window'), desc="window switcher"),
+
 ]
 
 groups = [Group(i) for i in "12345"]
