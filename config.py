@@ -177,6 +177,7 @@ screens = [
 
                 widget.CPUGraph(type='line', line_width=1),
                 widget.Net(),
+                widget.Battery(),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.QuickExit(),
