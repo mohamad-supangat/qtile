@@ -5,3 +5,4 @@
 
 # clipboard manager
 clipmenud --disable-primary &
+picom --no-use-damage &
