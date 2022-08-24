@@ -165,8 +165,9 @@ screens = [
                 widget.GroupBox(
                     disable_drag=True
                 ),
-                widget.Prompt(),
-                widget.WindowName(),
+                # widget.Prompt(),
+                # widget.WindowName(),
+                widget.TaskList(),
                 # widget.WindowTabs(
                 #     max_chars=10
                 # ),
