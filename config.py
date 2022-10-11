@@ -12,6 +12,7 @@ from libqtile import hook, qtile
 clipboard_manager = "clipman pick -t rofi"
 screenshot = 'grim -g "$(slurp)" - | swappy -f -'
 screenrecord = '~/.scripts/record-screen'
+screenanonation = '/home/deve/.scripts/screen-annonation.sh'
 
 
 # x11 variable apps
@@ -96,10 +97,15 @@ keys = [
     Key([mod], "r", lazy.spawn(runner), desc="runner"),
     Key([mod], "space", lazy.spawn(app_runner), desc="app_runner"),
     Key([mod, 'shift'], "b", lazy.spawn('qbpm choose'), desc="qbpm choose"),
-    Key([], 'Print', lazy.spawn(screenshot), desc="Screen shoot"),
-    Key([mod], 'Print', lazy.spawn(screenrecord), desc="screen record"),
+
     Key([mod, 'shift'], "s", lazy.spawn('start-scrcpy'), desc="scrcpy"),
     Key(['mod1'], "Tab", lazy.spawn('rofi -show window'), desc="window switcher"),
+
+
+    # screen tools
+    Key([], 'Print', lazy.spawn(screenshot), desc="Screen shoot"),
+    Key([mod], 'Print', lazy.spawn(screenrecord), desc="screen record"),
+    Key([mod, 'shift'], "a", lazy.spawn(screenanonation), desc="screen annonation"),
 
 ]
 
@@ -132,7 +138,7 @@ for i in groups:
 layouts = [
     layout.Columns(border_focus_stack=["#ff0000", "#00ff00"], border_focus="#d75f5f", border_width=5, margin=5),
     layout.Max(
-        margin=20
+        margin=59
     ),
 
     # Try more layouts by unleashing below layouts.

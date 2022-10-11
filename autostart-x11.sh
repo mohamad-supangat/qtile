@@ -5,4 +5,7 @@
 
 # clipboard manager
 clipmenud --disable-primary &
-picom --no-use-damage &
+
+# x11 compositor for better perfomance and rendering
+# xcompmgr &
+# picom --no-use-damage &
